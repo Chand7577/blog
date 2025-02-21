@@ -14,6 +14,7 @@ Welcome to the **Blog Platform**, a simple and elegant blogging application buil
 - **Express.js** (Backend Framework)
 - **EJS** (Template Engine)
 - **Middleware** (for request handling)
+- **Bootstrap** (CSS Framework for styling)
 
 ## 🚀 Getting Started
 
