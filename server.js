@@ -1,8 +1,12 @@
 import express from "express";
 import bodyParser from "body-parser";
+import path from "path";
 import { v4 as uuidv4 } from "uuid";
 
 let app = express();
+const path = require("path");
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 // mounting bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = 3000;
