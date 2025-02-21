@@ -1,13 +1,15 @@
 # 🚀 Blog Platform
 
 Welcome to the **Blog Platform**, a simple and elegant blogging application built using **Express.js**, **EJS**, and **middleware**.
-
+⚠️ This project is still under development! Expect frequent updates and improvements.
 ## 🌟 Features
 
 - ✍️ **Create, Read, Update, and Delete (CRUD)** blog posts.
 - 🎨 **Dynamic UI** with EJS templates.
 - 🛠 **Middleware** for enhanced functionality.
 - ⚡ **Lightweight and Fast** application structure.
+- 📱 **Mobile-Friendly UI** for seamless experience on all devices.
+- 🎨 **Responsive Design** with Bootstrap.
 
 ## 🛠️ Tech Stack
 
