@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
+require('dotenv').config();
 
 let app = express();
 const path = require("path");
