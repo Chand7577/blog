@@ -1,0 +1,105 @@
+body {
+  background-color: orange;
+  font-family: "Tilos";
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.navbar {
+  padding: 10px;
+}
+.navbar-brand {
+  font-family: "Felipa";
+  font-size: 1.5rem;
+}
+.search-container {
+  position: relative;
+  right: 200px;
+}
+.search-container input {
+  width: 26rem;
+}
+
+.card-container {
+  width: 100%;
+
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+.card {
+  width: 36%;
+}
+.post-form {
+  border: 1px solid black;
+  box-shadow: 15px 15px 15px red;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 20px;
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.post-form button {
+  width: 200px;
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+}
+.post-form input {
+  width: 690px;
+}
+.post-form button:hover {
+  background-color: red;
+  color: white;
+  transition: ease-in-out 2s;
+}
+.logo {
+  border: 3px solid rgb(119, 101, 101);
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+
+  text-align: center;
+}
+
+.btn-group {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  width: 40%;
+}
+/* media queries */
+@media all and (max-width: 790px) {
+  body {
+    background-color: lightblue;
+  }
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    width: 90%;
+  }
+  .post-form {
+    width: 300px;
+  }
+  .post-form input {
+    width: 80%;
+  }
+  .post-form textarea {
+    width: 80%;
+  }
+  .post-form button {
+    width: 80%;
+    height: 10%;
+  }
+}
