@@ -34,7 +34,9 @@ npm start
 ```
 - Open `http://localhost:3000` in your browser.
 
+### 🌍 Open Source Contribution
 
+This project is open-source, and everyone is free to contribute! Feel free to submit pull requests, open issues, and suggest new features
 
 ## 📸 Screenshots
 (Include some screenshots of your app here)
