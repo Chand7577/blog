@@ -9,7 +9,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 // mounting bodyparser
 app.use(bodyParser.urlencoded({ extended: true }));
-const PORT = 3000;
+const PORT = process.env.PORT|| 1000;
 let currentWorkingDirectory = process.cwd();
 function getFormattedDate() {
   const today = new Date();
