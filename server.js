@@ -11,17 +11,19 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-app.set("views", path.join(__dirname, "views"));
+// ✅ Ensure "views" points to the correct location
+app.set("views", path.join(__dirname, "views")); 
 app.set("view engine", "ejs");
 
-// Mounting body-parser
+// Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public")); // Serve static files
 
 const PORT = process.env.PORT || 1000;
 
+// Function to format date
 function getFormattedDate() {
-  const today = new Date();
-  return today.toLocaleDateString("en-US", {
+  return new Date().toLocaleDateString("en-US", {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -29,6 +31,7 @@ function getFormattedDate() {
   });
 }
 
+// Sample Blog Data
 let blogs = [
   {
     title: "Exploring the Cosmos",
@@ -92,63 +95,57 @@ let blogs = [
   },
 ];
 
-// Serve static files
-app.use(express.static("public"));
 
-// Routes
 app.get("/", (req, res) => {
-  res.render("pages/homepage", { blogs });
+  res.render("homepage", { blogs });
 });
 
 app.get("/home", (req, res) => {
-  res.render("pages/homepage", { blogs });
+  res.render("homepage", { blogs });
 });
 
 app.get("/create-post", (req, res) => {
-  res.render("pages/form");
+  res.render("form");
 });
 
+// Create new post
 app.post("/create-post", (req, res) => {
-  const newPost = req.body;
-  newPost["id"] = uuidv4().substring(0, 2);
-  newPost["date"] = getFormattedDate();
+  const newPost = {
+    ...req.body,
+    id: uuidv4().substring(0, 2),
+    date: getFormattedDate(),
+  };
   blogs.push(newPost);
-
   res.redirect("/home");
 });
 
+// Update post
 app.post("/update-post/:id", (req, res) => {
   const blogId = req.params.id;
-  let blog = blogs.find((blog) => blog.id === blogId);
-
+  let blog = blogs.find((b) => b.id === blogId);
   if (blog) {
     blog.title = req.body.title;
     blog.blog = req.body.blog;
     blog.date = getFormattedDate();
   }
-
   res.redirect("/");
 });
 
+// Edit post page
 app.get("/edit-post/:id", (req, res) => {
   const blogId = req.params.id;
-  let blog = blogs.find((blog) => blog.id === blogId);
-
-  if (!blog) {
-    return res.status(404).send("Blog not found");
-  }
-
-  res.render("pages/edit", { blog });
+  let blog = blogs.find((b) => b.id === blogId);
+  if (!blog) return res.status(404).send("Blog not found");
+  res.render("edit", { blog });
 });
 
-// Delete a blog post
+// Delete post
 app.post("/del-post/:id", (req, res) => {
-  const blogID = req.params.id;
-  blogs = blogs.filter((blog) => blog.id !== blogID);
+  blogs = blogs.filter((b) => b.id !== req.params.id);
   res.redirect("/");
 });
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
