@@ -39,7 +39,8 @@ npm start
 This project is open-source, and everyone is free to contribute! Feel free to submit pull requests, open issues, and suggest new features
 
 ## 📸 Screenshots
-(Include some screenshots of your app here)
+<img width="1440" alt="Screenshot 2025-02-21 at 12 08 39 PM" src="https://github.com/user-attachments/assets/4bd03ac3-8b36-4b1d-a891-27865f3d6b7f" />
+
 
 
 ---
