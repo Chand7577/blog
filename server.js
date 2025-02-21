@@ -1,10 +1,15 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const path = require("path");
-const { v4: uuidv4 } = require("uuid");
-require("dotenv").config();
+import express from "express";
+import bodyParser from "body-parser";
+import path from "path";
+import { fileURLToPath } from "url";
+import { v4 as uuidv4 } from "uuid";
+import dotenv from "dotenv";
 
-let app = express();
+dotenv.config();
+
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
